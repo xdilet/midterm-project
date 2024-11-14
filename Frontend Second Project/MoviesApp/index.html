@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Movies App</title>
+  <link rel="stylesheet" href="styles.css">
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <header>
+    <div class="logo">
+      <a href="index.html">
+        <h1>Movies App</h1>
+      </a>
+    </div>
+    <div class="favorites-icon">
+      <a href="./watchlist.html">
+        <img src="./icons/watchlist-icon.png" alt="Watchlist">
+      </a>
+    </div>
+  </header>
+<main>
+  <section id="search-section">
+    <input type="text" id="search-input" placeholder="Search for movies...">
+    <ul id="suggestions-list"></ul>
+    <select id="sort-select">
+      <option value="popularity">Popularity</option>
+      <option value="release_date">Release Date</option>
+      <option value="rating">Rating</option>
+    </select>
+  </section>
+
+  <div id="movies-grid">
+  </div>
+
+  <div id="movie-modal" class="modal">
+    <div class="modal-content">
+        <span class="close">&times;</span>
+        <div id="movie-details">
+            <h2 id="modalTitle"></h2>
+            <p id="modalDescription"></p>
+
+            <div id="modalRating"></div>
+            <div id="modalRuntime"></div>
+
+            <h3>Cast</h3>
+            <ul id="modalCast"></ul>
+
+            <h3>Reviews</h3>
+            <ul id="modalReviews"></ul>
+
+            <h3>Trailer</h3>
+            <div id="modalTrailers"></div>
+        </div>
+        <button id="modalWatchlistButton" >Add to Watchlist</button>
+    </div>
+</div>
+
+
+  <div id="toast" class="toast" role="alert">Recipe is already in favorite list</div>
+
+  </main>
+</body>
+</html>

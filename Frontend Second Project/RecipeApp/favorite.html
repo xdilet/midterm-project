@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Favourite</title>
+    <link rel="stylesheet" href="favorite.css">
+    <script src="fav.js" defer></script>
+</head>
+<body>
+    <header class="header">
+        <div class="header-content">
+            <a href="index.html" class="logo-link">
+                <img src="./icons/recipe-icon.png" alt="Recipe Logo" width="90" height="60" class="recipe-icon">
+            </a>
+            <h1 id="main-title">Recipe App</h1>
+            <a href="./favorite.html" class="fav-link">
+                <img src="./icons/favourite-icon.png" alt="Favourite recipes" width="60" height="60" class="favourite-icon">
+            </a>
+        </div>
+    </header>
+
+    <main class="content">
+
+        <div class="recipe-grid"  id="recipeGrid"> </div>
+
+        <!-- Modal -->
+        <div id="recipeModal" class="modal">
+            <div class="modal-content">
+                <span class="close">&times;</span>
+                <h2 id="modalTitle"></h2>
+                <p id="modalDescription"></p>
+        
+                <h3>Ingredients</h3>
+                <ul id="modalIngredients"></ul>
+        
+                <h3>Instructions</h3>
+                <ul id="modalInstructions"></ul>
+        
+                <h3>Nutrition</h3>
+                <p id="modalNutrition"></p>
+                <button id="modalFavoriteButton" class="favorite-button">Remove from favorite</button>
+            </div>
+        </div>
+        <!-- Toast Notification -->
+        <div id="toast" class="toast">Recipe is already in favorite list</div>
+
+    </main>
+</body>
+</html>

@@ -1,0 +1,480 @@
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  body {
+    font-family: Arial, sans-serif;
+    background-color: #f3f3f3;
+    color: #333;
+  }
+  
+  header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1em;
+    background-color: #444;
+    color: #fff;
+  }
+
+
+  header a {
+    text-decoration: none;
+    color: white;
+  }
+  
+  header h1 {
+    font-size: 1.5em;
+  }
+  
+  header .favorites-icon img {
+    width: 30px;
+    cursor: pointer;
+  }
+  
+  /* Search Section */
+  #search-section {
+    display: flex;
+    justify-content: center;
+    padding: 1em;
+    margin-top: 20px;
+    position: relative;
+  }
+  
+  #search-input {
+    width: 300px;
+    padding: 0.5em;
+    border-radius: 5px;
+    border: 1px solid #ddd;
+    margin-right: 1em;
+  }
+  
+  #sort-select {
+    padding: 0.3em;
+    border-radius: 5px;
+    border: 1px solid #ddd;
+  }
+  
+  #suggestions-list {
+    position: absolute;
+    top: 100%;
+    width: 100%;
+    max-height: 150px;
+    overflow-y: auto;
+    background-color: #fff;
+    border-top: none;
+    z-index: 1000;
+    list-style: none;
+    padding: 0;
+    margin-top: 5px;
+    display: 'none';
+  }
+  
+  #suggestions-list li {
+    padding: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  
+  #suggestions-list li:hover {
+    background-color: #f0f0f0;
+  }
+  
+  #movies-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));  
+    gap: 1em;
+    width: 100%;  
+}
+
+
+.movie-card {
+    position: relative;
+    width: 100%;  
+    height: auto; 
+    box-sizing: border-box;
+    max-width: 300px;  
+}
+  
+  .movie-card:hover {
+    transform: translateY(-5px);
+  }
+  
+  .movie-poster {
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+  }
+  
+  .movie-info {
+    padding: 1em;
+    text-align: center;
+  }
+  
+  .movie-title {
+    font-size: 1.2em;
+    font-weight: bold;
+  }
+  
+  .movie-release-date {
+    font-size: 0.9em;
+    color: #666;
+  }
+  
+  .modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+  }
+  
+  .modal-content {
+    background-color: #fff;
+    margin: 10% auto;
+    padding: 1em;
+    border-radius: 10px;
+    width: 80%;
+    max-width: 700px;
+    z-index: 1000;
+  }
+  
+  .close {
+    float: right;
+    font-size: 1.5em;
+    cursor: pointer;
+  }
+
+#suggestion-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    max-height: 300px;
+    overflow-y: auto;
+    border: 1px solid #ccc;
+    background-color: #fff;
+    position: absolute;
+    width: 100%;
+    z-index: 10;
+}
+
+.suggestion-item {
+    display: flex;
+    align-items: center;
+    padding: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.suggestion-item:hover {
+    background-color: #f1f1f1;
+}
+
+.suggestion-image {
+    width: 40px;
+    height: 60px;
+    object-fit: cover;
+    margin-right: 10px;
+}
+
+.suggestion-item span {
+    font-size: 14px;
+}
+
+.movie-card {
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    margin: 10px;
+    transition: transform 0.3s ease;
+    padding-bottom: 50px;
+}
+
+.movie-card:hover {
+    transform: scale(1.05);
+}
+
+.movie-card img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+}
+
+.movie-card h3 {
+    font-size: 16px;
+    font-weight: bold;
+    margin-top: 10px;
+}
+
+.movie-card p {
+    font-size: 14px;
+    color: #555;
+    margin: 5px 0;
+}
+
+.watchlist-button {
+    background-color: #ff5c5c;
+    color: #fff;
+    padding: 8px 12px;
+    border: none;
+    border-radius: 4px;
+    font-size: 14px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    margin-bottom: auto;
+    position: absolute;
+    bottom: 10px; 
+    left: 50%;
+    transform: translateX(-50%); 
+    width: 200px;
+}
+
+.watchlist-button:hover {
+    background-color: #ff2f2f;
+}
+
+.watchlist-button:focus {
+    outline: none;
+}
+
+#modalWatchlistButton {
+    background-color: #ff5c5c;
+    color: #fff;
+    padding: 8px 12px;
+    border: none;
+    border-radius: 4px;
+    font-size: 14px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    margin-left: auto;
+    bottom: 10px; 
+    width: 200px;
+}
+
+#watchlist-button:hover {
+    background-color: #ff2f2f;
+}
+
+#watchlist-button:focus {
+    outline: none;
+}
+
+
+.movie-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    display: none;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+.movie-modal.open {
+    display: flex;
+}
+
+.movie-modal-content {
+    background-color: #fff;
+    padding: 20px;
+    max-width: 600px;
+    width: 100%;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.movie-modal-content img {
+    width: 100%;
+    border-radius: 8px;
+    margin-bottom: 15px;
+}
+
+.movie-modal-content h2 {
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+.movie-modal-content p {
+    font-size: 16px;
+    color: #333;
+}
+
+.movie-modal-content button {
+    background-color: #ff5c5c;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+.movie-modal-content button:hover {
+    background-color: #ff2f2f;
+}
+
+.toast {
+    visibility: hidden;
+    min-width: 200px;
+    margin-left: -100px;
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    border-radius: 4px;
+    padding: 10px;
+    position: fixed;
+    z-index: 1000;
+    left: 50%;
+    right: 50%;
+    bottom: 30px;
+    font-size: 17px;
+}
+
+.toast-success {
+    background-color: #4CAF50; 
+}
+
+.toast-error {
+    background-color: #f44336; 
+}
+
+.toast.show {
+    visibility: visible;
+    animation: fadein 0.5s, fadeout 0.5s 2.5s;
+}
+@keyframes fadein {
+    from {bottom: 0; opacity: 0;}
+    to {bottom: 30px; opacity: 1;}
+}
+
+@keyframes fadeout {
+    from {bottom: 30px; opacity: 1;}
+    to {bottom: 0; opacity: 0;}
+}
+
+
+
+.modal {
+    display: none;  
+    position: fixed; 
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7); 
+    overflow: auto;
+    padding-top: 60px; 
+    transition: opacity 0.3s ease; 
+}
+
+
+.modal-content {
+    background-color: #fefefe;
+    margin: 5% auto; 
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%; 
+    max-width: 700px;
+    border-radius: 8px; 
+    animation: slideIn 0.3s ease-out; 
+}
+
+#modalTitle {
+    font-size: 2rem;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+#modalDescription {
+    font-size: 1rem;
+    color: #555;
+    margin-bottom: 20px;
+    line-height: 1.5;
+}
+
+#modalRating,
+#modalRuntime {
+    font-size: 1.2rem;
+    margin-bottom: 15px;
+    color: #444;
+}
+
+#modalCast {
+    list-style-type: none;
+    padding: 0;
+    margin-bottom: 15px;
+}
+
+#modalCast li {
+    font-size: 1rem;
+    color: #666;
+}
+
+
+#modalReviews {
+    list-style-type: none;
+    padding: 0;
+    margin-bottom: 15px;
+}
+
+#modalReviews li {
+    font-size: 1rem;
+    color: #888;
+    margin-bottom: 10px;
+}
+
+#modalTrailers {
+    margin-bottom: 20px;
+}
+
+#modalTrailers iframe {
+    width: 100%;
+    height: 300px;
+    border: none;
+    border-radius: 8px;
+}
+
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: color 0.3s;
+}
+
+.close:hover,
+.close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+@keyframes slideIn {
+    from {
+        transform: translateY(-50%);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+
+
+  

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Movies App</title>
+    <link rel="stylesheet" href="watchlist.css">
+    <script src="script2.js" defer></script>
+</head>
+<body>
+  <header>
+        <a href="index.html">
+            <h1>Movies App</h1>
+          </a>
+    <div class="favorites-icon">
+      <a href="./watchlist.html">
+        <img src="./icons/watchlist-icon.png" alt="Watchlist">
+      </a>
+    </div>
+  </header>
+<main>
+
+  <div id="movies-grid">
+  </div>
+
+  <div id="movie-modal" class="modal">
+    <div class="modal-content">
+        <span class="close">&times;</span>
+        <div id="movie-details">
+            <h2 id="modalTitle"></h2>
+            <p id="modalDescription"></p>
+
+            <div id="modalRating"></div>
+
+            <div id="modalRuntime"></div>
+
+            <h3>Cast</h3>
+            <ul id="modalCast"></ul>
+
+        </div>
+        <button id="modalWatchlistButton">Remove from watchlist</button>
+    </div>
+</div>
+
+
+  <div id="toast" class="toast" role="alert">Recipe is already in favorite list</div>
+
+  </main>
+</body>
+</html>

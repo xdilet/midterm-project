@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recipe App</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- The script will be loaded after the document is parsed, but before the DOMContentLoaded event is fired -->
+    <script src="script.js" defer></script>
+</head>
+<body>
+    <header class="header">
+        <div class="header-content">
+        <a href="/RecipeApp/index.html" class="logo-link" aria-label="Go to homepage">
+            <img src="./icons/recipe-icon.png" alt="Recipe Logo" width="90" height="60" class="recipe-icon" loading="lazy">
+        </a>
+        <h1 id="main-title">Recipe App</h1>
+        <a href="./favorite.html" class="fav-link" aria-label="Go to favorite recipes">
+            <img src="./icons/favourite-icon.png" alt="Favourite recipes" width="60" height="60" class="favourite-icon">
+        </a>
+        </div>
+    </header>
+
+    <main class="content">
+        <div class="input">
+            <!-- The label is hidden visually but still accessible to screen readers, providing context for the input field -->
+            <label for="recipeInput" class="sr-only">Search for recipes</label>
+
+            <div class="search-switcher">
+                <button id="searchByName" class="switch-button active" aria-pressed="true">By Name</button>
+                <button id="searchByIngredient" class="switch-button" aria-pressed="false">By Ingredient</button>
+            </div>
+
+            <input id="recipeInput" type="text" placeholder="Search by name..." data-search-mode="name" aria-label="Search recipes by name">
+            <ul id="autocomplete-results" class="autocomplete-results" role="listbox"></ul>
+        
+        </div>
+
+        <div class="recipe-grid"  id="recipeGrid"></div>
+
+        <!-- Modal -->
+        <div id="recipeModal" class="modal" role="dialog" aria-labelledby="modalTitle">
+            <div class="modal-content">
+                <span class="close" aria-label="Close modal">&times;</span>
+                <h2 id="modalTitle"></h2>
+                <p id="modalDescription"></p>
+
+                <h3>Ingredients</h3>
+                <ul id="modalIngredients"></ul>
+
+                <h3>Instructions</h3>
+                <ul id="modalInstructions"></ul>
+
+                <h3>Nutrition</h3>
+                <p id="modalNutrition"></p>
+
+                <button id="modalFavoriteButton" class="favorite-button" aria-label="Add recipe to favorites">☆ Add to favorite</button>
+            </div>
+        </div>
+        
+
+        <!-- Toast Notification -->
+        <div id="toast" class="toast" role="alert">Recipe is already in favorite list</div>
+        
+    </main>
+</body>
+</html>
+
